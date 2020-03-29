@@ -24,19 +24,19 @@ MassMean::~MassMean() {
 
 
 // add data from a new event
-void MassMean::add( const Event& ev ) {
-
+bool MassMean::add( const Event& ev ) {
   double Mass = mass( ev );
 
   // check for mass being in range
-  if ( Mass < massMin || Mass > massMax ) return;
+  if ( Mass < massMin || Mass > massMax ) 
+    return false;
 
   // update number of events and sums
   ++nEvt;
   sum += Mass;
   sqr += Mass * Mass;
 
-  return;
+  return true;
 
 }
 

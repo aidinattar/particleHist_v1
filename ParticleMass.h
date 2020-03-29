@@ -1,11 +1,15 @@
 #ifndef ParticleMass_h
 #define ParticleMass_h
 
+
+
 #include "AnalysisSteering.h"
+#include <string>
 #include <vector>
 
 class Event;
 class MassMean;
+class TH1F;
 
 class ParticleMass: public AnalysisSteering {
 
@@ -28,8 +32,16 @@ class ParticleMass: public AnalysisSteering {
   ParticleMass           ( const ParticleMass& x );
   ParticleMass& operator=( const ParticleMass& x );
 
-  // set of _____________ for different total energies
-  std::vector<MassMean*> pList;
+  struct Particle {
+    std::string  name;  // element name
+    MassMean*   pMean; // statistic object
+    TH1F*       hMean; // graph
+  };
+
+  // set of masses for different particles
+  std::vector<Particle*> pList;
+
+  void pCreate( const std::string& name, float min, float max );
 
 };
 

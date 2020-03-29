@@ -14,7 +14,7 @@ class MassMean {
   MassMean( float min, float max ); // mass range
   ~MassMean();
 
-  void add( const Event& ev );      // add data from a new event
+  bool add( const Event& ev );      // add data from a new event
   void compute();                   // compute mean and rms
 
   int    nEvents(); // return number of accepted events

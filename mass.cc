@@ -75,7 +75,7 @@ double mass ( const Event& ev ){
                             sumEnL0 );
 
   // compare invariant masses with known values and return the nearest one
-  if ( fabs( K0exp - cost.massK0 ) <
+  if ( fabs( K0exp - cost.massK0      ) <
        fabs( L0exp - cost.massLambda0 ) ) return K0exp;
 
   return L0exp;

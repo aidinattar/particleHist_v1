@@ -1,0 +1,8 @@
+./main sim 100000 2 
+or
+./main input particle_events.txt
+
+in root
+TFile *f = TFile::Open("hist.root")
+f->ls()
+K0->Draw()
